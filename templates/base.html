@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% load static %}
     <head>
         <!-- prettier-ignore -->
         {% block meta %}
@@ -11,21 +12,30 @@
         <!-- prettier-ignore -->
         {% block extra_meta %}{% endblock extra_meta %} 
     
-    {% block corecss %}
+        {% block corecss %}
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700&family=Lato:wght@300&family=Roboto:wght@100;300;400;500;700&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
         {% endblock corecss %}
 
         <!-- prettier-ignore -->
         {% block extra_css %}{% endblock extra_css %}
 
-    {% block corejs %}
+        {% block corejs %}
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://kit.fontawesome.com/0be8f1ee62.js"
             crossorigin="anonymous"></script>
         {% endblock corejs %}
 
@@ -66,7 +76,8 @@
                     </form>
                 </div>
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <ul class="col-12 col-lg-4 my-auto py-1 py-lg 0">
+                    <ul
+                        class="list-inline list-unstyled text-center text-lg-right my-0">
                         <li class="list-inline-item dropdown">
                             <a
                                 href="#"
