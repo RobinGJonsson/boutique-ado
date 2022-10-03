@@ -36,7 +36,7 @@
     </head>
     <body>
         <header class="container-fluid fixed-top">
-            <div class="row">
+            <div class="row bg-white pt-lg-2 d-none d-lg-flex" id="topnav">
                 <div
                     class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -72,7 +72,7 @@
                                 href="#"
                                 class="text-black nav-link"
                                 id="user-options"
-                                data-toggle="dropdown"
+                                data-bs-toggle="dropdown"
                                 aria-hashpopup="true"
                                 aria-exanded="false">
                                 <div class="text-center">
@@ -82,12 +82,14 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border-0">
+                            <div
+                                class="dropdown-menu border-0"
+                                aria-labelledby="user-options">
                                 <!-- prettier-ignore -->
                                 {% if request.user.is_authenticated %} 
                                 {% if request.user.is_superuser %}
                                 <a href="" class="dropdown-item">
-                                    Product Management
+                                    P roduct Management
                                 </a>
                                 {% endif %}
                                 <a href="#" class="dropdown-item">My Profile</a>
