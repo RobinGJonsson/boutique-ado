@@ -3,7 +3,7 @@
         class="text-black nav-link d-block d-lg-none"
         href="#"
         id="mobile-search"
-        data-toggle="dropdown"
+        data-bs-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false">
         <div class="text-center">
@@ -14,7 +14,7 @@
     <div
         class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0"
         aria-labelledby="mobile-search">
-        <form method="GET" action="{% url 'products' %}">
+        <form class="form" method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
                 <input
                     class="form-control border border-black rounded-0"
@@ -39,7 +39,7 @@
         class="text-black nav-link d-block d-lg-none"
         href="#"
         id="user-options"
-        data-toggle="dropdown"
+        data-bs-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false">
         <div class="text-center">
@@ -48,12 +48,11 @@
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        <!-- prettier-ignore -->
-        {% if request.user.is_authenticated %} 
-        {% if request.user.is_superuser%}
-        <a href="{% url 'account_logout' %}" class="dropdown-item">
-            Product Management
-        </a>
+        {% if request.user.is_authenticated %} {% if request.user.is_superuser
+        %}
+        <a href="{% url 'account_logout' %}" class="dropdown-item"
+            >Product Management</a
+        >
         {% endif %}
         <a href="" class="dropdown-item">My Profile</a>
         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -66,7 +65,7 @@
 <li class="list-inline-item">
     <a
         class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"
-        href="">
+        href="{% url 'view_bag' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
             <p class="my-0">
