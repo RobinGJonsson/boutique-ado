@@ -48,8 +48,9 @@
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %} {% if request.user.is_superuser
-        %}
+        <!-- prettier-ignore -->
+        {% if request.user.is_authenticated %} 
+        {% if request.user.is_superuser%}
         <a href="{% url 'account_logout' %}" class="dropdown-item"
             >Product Management</a
         >
