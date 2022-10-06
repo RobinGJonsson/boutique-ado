@@ -34,9 +34,17 @@ page_header %}
                     {% for item in bag_items %}
                     <tr>
                         <td class="p-3 w-25">
+                            {% if item.product.image %}
                             <img
                                 class="img-fluid rounded"
-                                src="{{ item.product.image.url }}" />
+                                src="{{ item.product.image.url }}"
+                                alt="{{ item.product.name }}" />
+                            {% else %}
+                            <img
+                                class="img-fluid rounded"
+                                src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ item.product.name }}" />
+                            {% endif %}
                         </td>
                         <td class="py-3">
                             <p class="my-0">
@@ -156,7 +164,9 @@ page_header %}
                                     >Keep Shopping</span
                                 >
                             </a>
-                            <a href="" class="btn btn-black rounded-0 btn-lg">
+                            <a
+                                href="{% url 'checkout' %}"
+                                class="btn btn-black rounded-0 btn-lg">
                                 <span class="text-uppercase"
                                     >Secure Checkout</span
                                 >
