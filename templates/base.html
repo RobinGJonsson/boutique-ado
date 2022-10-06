@@ -9,7 +9,10 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        {% endblock %} {% block extra_meta %} {% endblock %} {% block corecss %}
+        {% endblock %} 
+        {% block extra_meta %} 
+        {% endblock %} 
+        {% block corecss %}
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,7 +22,10 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Lato&display=swap" />
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-        {% endblock %} {% block extra_css %} {% endblock %} {% block corejs %}
+        {% endblock %} 
+        {% block extra_css %} 
+        {% endblock %} 
+        {% block corejs %}
         <script
             src="https://kit.fontawesome.com/e9c73d7092.js"
             crossorigin="anonymous"></script>
@@ -37,7 +43,9 @@
             crossorigin="anonymous"></script>
         <!-- Stripe -->
         <script src="https://js.stripe.com/v3/"></script>
-        {% endblock %} {% block extra_js %} {% endblock %}
+        {% endblock %} 
+        {% block extra_js %} 
+        {% endblock %}
 
         <title>Boutique Ado {% block extra_title %}{% endblock %}</title>
     </head>
@@ -91,8 +99,8 @@
                             <div
                                 class="dropdown-menu border-0"
                                 aria-labelledby="user-options">
-                                {% if request.user.is_authenticated %} {% if
-                                request.user.is_superuser %}
+                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
                                 <a
                                     href="{% url 'add_product' %}"
                                     class="dropdown-item"
@@ -124,18 +132,18 @@
                             </div>
                         </li>
                         <li class="list-inline-item">
-                            <a
-                                class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                                href="{% url 'view_bag' %}">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                                 <div class="text-center">
                                     <div>
                                         <i
                                             class="fas fa-shopping-bag fa-lg"></i>
                                     </div>
                                     <p class="my-0">
-                                        {% if grand_total %} ${{
-                                        grand_total|floatformat:2 }} {% else %}
-                                        $0.00 {% endif %}
+                                        {% if grand_total %} 
+                                        ${{ grand_total|floatformat:2 }} 
+                                        {% else %}
+                                        $0.00 
+                                        {% endif %}
                                     </p>
                                 </div>
                             </a>
@@ -155,15 +163,14 @@
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    {% include 'includes/mobile-top-header.html' %} {% include
-                    'includes/main-nav.html' %}
+                    {% include 'includes/mobile-top-header.html' %} 
+                    {% include 'includes/main-nav.html' %}
                 </nav>
             </div>
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-black text-white">
                     <h4 class="logo-font my-1">
-                        Free delivery on orders over ${{ free_delivery_threshold
-                        }}!
+                        Free delivery on orders over ${{ free_delivery_threshold }}!
                     </h4>
                 </div>
             </div>
@@ -171,19 +178,28 @@
 
         {% if messages %}
         <div class="message-container">
-            {% for message in messages %} {% with message.level as level %} {%
-            if level == 40 %} {% include 'includes/toasts/toast_error.html' %}
-            {% elif level == 30 %} {% include
-            'includes/toasts/toast_warning.html' %} {% elif level == 25 %} {%
-            include 'includes/toasts/toast_success.html' %} {% else %} {%
-            include 'includes/toasts/toast_info.html' %} {% endif %} {% endwith
-            %} {% endfor %}
+            {% for message in messages %} 
+                {% with message.level as level %} 
+                {% if level == 40 %} 
+                {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %} 
+                {% include 'includes/toasts/toast_warning.html' %} 
+                {% elif level == 25 %} 
+                {% include 'includes/toasts/toast_success.html' %} 
+                {% else %} {% include 'includes/toasts/toast_info.html' %} 
+                {% endif %} 
+                {% endwith %} 
+            {% endfor %}
         </div>
-        {% endif %} {% block page_header %} {% endblock %} {% block content %}
-        {% endblock %} {% block postloadjs %}
-        <script type="text/javascript">
-            $(".toast").toast("show");
-        </script>
+        {% endif %} 
+        {% block page_header %} 
+        {% endblock %} 
+        {% block content %}
+        {% endblock %} 
+        {% block postloadjs %}
+            <script type="text/javascript">
+                $(".toast").toast("show");
+            </script>
         {% endblock %}
     </body>
 </html>

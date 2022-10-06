@@ -1,10 +1,13 @@
-{% extends "base.html" %} {% load static %} {% block page_header %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block page_header %}
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
 </div>
-{% endblock %} {% block content %}
+{% endblock %} 
+{% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
@@ -38,18 +41,19 @@
                     <a
                         class="text-muted"
                         href="{% url 'products' %}?category={{ product.category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{
-                        product.category.friendly_name }}
+                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                     </a>
                 </p>
-                {% endif %} {% if product.rating %}
+                {% endif %} 
+                {% if product.rating %}
                 <small class="text-muted"
                     ><i class="fas fa-star mr-1"></i>{{ product.rating }} /
                     5</small
                 >
                 {% else %}
                 <small class="text-muted">No Rating</small>
-                {% endif %} {% if request.user.is_superuser %}
+                {% endif %} 
+                {% if request.user.is_superuser %}
                 <small class="ml-3">
                     <a href="{% url 'edit_product' product.id %}">Edit</a> |
                     <a
@@ -66,7 +70,8 @@
                     method="POST">
                     {% csrf_token %}
                     <div class="form-row">
-                        {% with product.has_sizes as s %} {% if s %}
+                        {% with product.has_sizes as s %} 
+                        {% if s %}
                         <div class="col-12">
                             <p><strong>Size:</strong></p>
                             <select
@@ -145,5 +150,8 @@
         </div>
     </div>
 </div>
-{% endblock %} {% block postloadjs %} {{ block.super }} {% include
-'products/includes/quantity_input_script.html' %} {% endblock %}
+{% endblock %} 
+{% block postloadjs %} 
+    {{ block.super }} 
+    {% include 'products/includes/quantity_input_script.html' %} 
+{% endblock %}

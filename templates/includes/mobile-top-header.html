@@ -48,8 +48,8 @@
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %} {% if request.user.is_superuser
-        %}
+        {% if request.user.is_authenticated %} 
+        {% if request.user.is_superuser %}
         <a href="{% url 'add_product' %}" class="dropdown-item"
             >Product Management</a
         >
@@ -69,8 +69,11 @@
         <div class="text-center">
             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
             <p class="my-0">
-                {% if grand_total %} ${{ grand_total|floatformat:2 }} {% else %}
-                $0.00 {% endif %}
+                {% if grand_total %} 
+                ${{ grand_total|floatformat:2 }} 
+                {% else %}
+                $0.00 
+                {% endif %}
             </p>
         </div>
     </a>
