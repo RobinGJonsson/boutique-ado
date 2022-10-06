@@ -1,5 +1,3 @@
-from tkinter import image_names
-from unicodedata import category, decimal
 from django.db import models
 
 
