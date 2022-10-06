@@ -1,4 +1,7 @@
 {
     "prettier.bracketSameLine": true,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "workbench.preferredDarkColorTheme": "Atom One Dark",
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.preferredHighContrastColorTheme": "Atom One Dark"
 }
