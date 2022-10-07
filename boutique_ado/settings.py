@@ -208,3 +208,5 @@ STRIPE_PRIVATE_KEY = os.environ.get('STRIPE_PRIVATE_KEY')
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
 DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+
+DEFAULT_AUTO_FILED = 'django.db.models.BigAutoField'
